@@ -30,7 +30,7 @@ Focus is made on the reliability of the test result. In case of doublt, the *Man
 |         CLT11a        |           Manual            |
 |         CLT11b        |           Manual            |
 
-# Backend-for-Frontend
+## Backend-for-Frontend
 
 | Validation identifier |       Validation mode       |
 |:---------------------:|:---------------------------:|
@@ -44,7 +44,7 @@ Focus is made on the reliability of the test result. In case of doublt, the *Man
 |         BFF07         |        Automatable          |
 |         BFF08         |           Manual            |
 
-# API
+## API
 
 > Note that all test related to JWT token can leverage [jwt_tool](https://github.com/ticarpi/jwt_tool) for the automation.
 
@@ -66,7 +66,7 @@ Focus is made on the reliability of the test result. In case of doublt, the *Man
 |         API05         |        Automatable          |
 |         API06         |        Automatable          |
 
-# Security Token Service
+## Security Token Service
 
 | Validation identifier |       Validation mode       |
 |:---------------------:|:---------------------------:|
