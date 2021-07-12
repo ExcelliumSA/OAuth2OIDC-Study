@@ -68,7 +68,7 @@
         function login() {
             //See https://www.keycloak.org/docs/latest/securing_apps/#login-options
             let options = {
-                scope: "openid profile"
+                scope: "openid profile api"
             }
             keycloak.login(options);
         }
@@ -84,12 +84,14 @@
     <div class="container-lg">
         <div class="alert alert-primary" role="alert" id="loginState"></div>
         <button type="button" class="btn btn-primary" onclick="login()" data-bs-toggle="tooltip"
-            title="Open developer Console to see tokens and profile information." data-bs-placement="top">Login</button>
-        <button type="button" class="btn btn-primary" onclick="logout()">Logout</button>
+            title="Login user on Keycloak. Open developer Console to see tokens and profile information."
+            data-bs-placement="top">Login</button>
+        <button type="button" class="btn btn-primary" onclick="logout()" title="Logout user from Keycloak."
+            data-bs-toggle="tooltip" data-bs-placement="top">Logout</button>
         <br />
         <a target="_blank" id="decodeAccessTokenLink"
-            href="https://gchq.github.io/CyberChef/#recipe=JWT_Decode()&input=ZXlKaGJHY2lPaUpTVXpJMU5pSXNJblI1Y0NJZ09pQWlTbGRVSWl3aWEybGtJaUE2SUNKRWFDMTRaWEpyYTA1NmQxUXhSbVZuUVVwT1psVnNObVpJV0ZwTGEzbENRMG8xVm5Sdk9GQlJlR2wzSW4wLmV5SmxlSEFpT2pFMk1qWXhNRE16TVRZc0ltbGhkQ0k2TVRZeU5qRXdNekF4Tml3aVlYVjBhRjkwYVcxbElqb3hOakkyTVRBeU9UazRMQ0pxZEdraU9pSmpOR0ZsTWpGaFppMWlNRE5oTFRRNVl6UXRZV0U1WWkxa09XWTVOMlZrTmpobE9URWlMQ0pwYzNNaU9pSm9kSFJ3T2k4dmJHOWpZV3hvYjNOME9qZ3dPREF2WVhWMGFDOXlaV0ZzYlhNdlpHVnRieUlzSW1GMVpDSTZJbUZqWTI5MWJuUWlMQ0p6ZFdJaU9pSTJOV0U1WVdKak5pMHpNVGMxTFRReE16RXRZVEpsWkMxaVl6Vm1NMkZqWXpnMlpXVWlMQ0owZVhBaU9pSkNaV0Z5WlhJaUxDSmhlbkFpT2lKa1pXMXZJaXdpYm05dVkyVWlPaUl6TW1GaVltVmxaQzFoWVRGakxUUXlOall0WWpsak1DMHdOR1k0TmpCak9UTTFaamNpTENKelpYTnphVzl1WDNOMFlYUmxJam9pWlRaaU1qYzVNREV0WldNMk1TMDBaRFptTFdFMU1ESXRNVFZsWW1ZeFpERTNZV1UxSWl3aVlXTnlJam9pTUNJc0ltRnNiRzkzWldRdGIzSnBaMmx1Y3lJNld5Sm9kSFJ3T2k4dmJHOWpZV3hvYjNOME9qazFNREFpWFN3aWNtVmhiRzFmWVdOalpYTnpJanA3SW5KdmJHVnpJanBiSW1SbFptRjFiSFF0Y205c1pYTXRjMkZ1WkdKdmVDSXNJbTltWm14cGJtVmZZV05qWlhOeklpd2lkVzFoWDJGMWRHaHZjbWw2WVhScGIyNGlYWDBzSW5KbGMyOTFjbU5sWDJGalkyVnpjeUk2ZXlKaFkyTnZkVzUwSWpwN0luSnZiR1Z6SWpwYkltMWhibUZuWlMxaFkyTnZkVzUwSWl3aWJXRnVZV2RsTFdGalkyOTFiblF0YkdsdWEzTWlMQ0oyYVdWM0xYQnliMlpwYkdVaVhYMTlMQ0p6WTI5d1pTSTZJbTl3Wlc1cFpDQmxiV0ZwYkNCd2NtOW1hV3hsSWl3aVpXMWhhV3hmZG1WeWFXWnBaV1FpT21aaGJITmxMQ0p1WVcxbElqb2laR1Z0YnlCa1pXMXZJaXdpY0hKbFptVnljbVZrWDNWelpYSnVZVzFsSWpvaVpHVnRieUlzSW1kcGRtVnVYMjVoYldVaU9pSmtaVzF2SWl3aVptRnRhV3g1WDI1aGJXVWlPaUprWlcxdkluMC5WXzhZNUtSdUp4R2QzcGtzNUxIcjdyM05KYlRRZ19FRHpEQ3RZQUcydHBFWlZ1bnlxWmZXd0tiZWRQcjhmTjVOWE5Ea2Faa3Q0R3J5cjVMQWRqZFhXNkpza1ZFREdrZ2U0TEdhT3JNZWF0cGlIVlZvZjc4SUxUMlZrcHl5MG5LWUtiY25fbXBvUkVJdXpINWFCVFJrR0tzWkhXcC0xLXZfaTZBZTBlZmVxZy15UTFxN05rMHc5VjFyeU9YUjR4UjFaRDFWZC1yeHlSTHVLRTZ5Ul9mVzFmQm9iZEkwbnNzRnZmMmZNM0l1QkUwOXZWTGpLU21IQ0hjZUxHcXMxX2ROclotYU9PUFhXYkdIX0VQQUxHR2YxMWtTN29ORTk3UmRvTkVaV2tOTDc4dW83dGxPZHkxbzJCV183VUg5cDIyOFFjRFRJSlVjVWxHSjZnQ0tyWXRiVGc">CyberChef
-            JWT Decode recipe</a>
+            href="https://gchq.github.io/CyberChef/#recipe=JWT_Decode()&input=ZXlKaGJHY2lPaUpTVXpJMU5pSXNJblI1Y0NJZ09pQWlTbGRVSWl3aWEybGtJaUE2SUNKRWFDMTRaWEpyYTA1NmQxUXhSbVZuUVVwT1psVnNObVpJV0ZwTGEzbENRMG8xVm5Sdk9GQlJlR2wzSW4wLmV5SmxlSEFpT2pFMk1qWXhNRE16TVRZc0ltbGhkQ0k2TVRZeU5qRXdNekF4Tml3aVlYVjBhRjkwYVcxbElqb3hOakkyTVRBeU9UazRMQ0pxZEdraU9pSmpOR0ZsTWpGaFppMWlNRE5oTFRRNVl6UXRZV0U1WWkxa09XWTVOMlZrTmpobE9URWlMQ0pwYzNNaU9pSm9kSFJ3T2k4dmJHOWpZV3hvYjNOME9qZ3dPREF2WVhWMGFDOXlaV0ZzYlhNdlpHVnRieUlzSW1GMVpDSTZJbUZqWTI5MWJuUWlMQ0p6ZFdJaU9pSTJOV0U1WVdKak5pMHpNVGMxTFRReE16RXRZVEpsWkMxaVl6Vm1NMkZqWXpnMlpXVWlMQ0owZVhBaU9pSkNaV0Z5WlhJaUxDSmhlbkFpT2lKa1pXMXZJaXdpYm05dVkyVWlPaUl6TW1GaVltVmxaQzFoWVRGakxUUXlOall0WWpsak1DMHdOR1k0TmpCak9UTTFaamNpTENKelpYTnphVzl1WDNOMFlYUmxJam9pWlRaaU1qYzVNREV0WldNMk1TMDBaRFptTFdFMU1ESXRNVFZsWW1ZeFpERTNZV1UxSWl3aVlXTnlJam9pTUNJc0ltRnNiRzkzWldRdGIzSnBaMmx1Y3lJNld5Sm9kSFJ3T2k4dmJHOWpZV3hvYjNOME9qazFNREFpWFN3aWNtVmhiRzFmWVdOalpYTnpJanA3SW5KdmJHVnpJanBiSW1SbFptRjFiSFF0Y205c1pYTXRjMkZ1WkdKdmVDSXNJbTltWm14cGJtVmZZV05qWlhOeklpd2lkVzFoWDJGMWRHaHZjbWw2WVhScGIyNGlYWDBzSW5KbGMyOTFjbU5sWDJGalkyVnpjeUk2ZXlKaFkyTnZkVzUwSWpwN0luSnZiR1Z6SWpwYkltMWhibUZuWlMxaFkyTnZkVzUwSWl3aWJXRnVZV2RsTFdGalkyOTFiblF0YkdsdWEzTWlMQ0oyYVdWM0xYQnliMlpwYkdVaVhYMTlMQ0p6WTI5d1pTSTZJbTl3Wlc1cFpDQmxiV0ZwYkNCd2NtOW1hV3hsSWl3aVpXMWhhV3hmZG1WeWFXWnBaV1FpT21aaGJITmxMQ0p1WVcxbElqb2laR1Z0YnlCa1pXMXZJaXdpY0hKbFptVnljbVZrWDNWelpYSnVZVzFsSWpvaVpHVnRieUlzSW1kcGRtVnVYMjVoYldVaU9pSmtaVzF2SWl3aVptRnRhV3g1WDI1aGJXVWlPaUprWlcxdkluMC5WXzhZNUtSdUp4R2QzcGtzNUxIcjdyM05KYlRRZ19FRHpEQ3RZQUcydHBFWlZ1bnlxWmZXd0tiZWRQcjhmTjVOWE5Ea2Faa3Q0R3J5cjVMQWRqZFhXNkpza1ZFREdrZ2U0TEdhT3JNZWF0cGlIVlZvZjc4SUxUMlZrcHl5MG5LWUtiY25fbXBvUkVJdXpINWFCVFJrR0tzWkhXcC0xLXZfaTZBZTBlZmVxZy15UTFxN05rMHc5VjFyeU9YUjR4UjFaRDFWZC1yeHlSTHVLRTZ5Ul9mVzFmQm9iZEkwbnNzRnZmMmZNM0l1QkUwOXZWTGpLU21IQ0hjZUxHcXMxX2ROclotYU9PUFhXYkdIX0VQQUxHR2YxMWtTN29ORTk3UmRvTkVaV2tOTDc4dW83dGxPZHkxbzJCV183VUg5cDIyOFFjRFRJSlVjVWxHSjZnQ0tyWXRiVGc">Decode
+            Access Token</a>
     </div>
 </body>
 
