@@ -1,4 +1,4 @@
-# OAuth2ODIC-Study
+# OAuth2OIDC-Study
 
 > :construction: Work in progress
 
