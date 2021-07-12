@@ -63,4 +63,4 @@ $ docker run -p 8080:8080 -e KEYCLOAK_USER=admin -e KEYCLOAK_PASSWORD=admin quay
 
 4) Open this [url](http://localhost:9500/App.html) in a browser to access to the demo Web Client..
 
-5) Lab is ready to used :sunglasses:
+5) Lab is ready to be used :sunglasses:
