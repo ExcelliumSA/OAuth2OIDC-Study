@@ -1,3 +1,105 @@
+# Description
+
+This file list all identified security-oriented validations points against a system using OAuth2 / OpenID Connect.
+
+# Validation automation status
+
+> Terminology is defined in the **Terminology** section below.
+
+This section indicate, for each, validation points, if the test is manual or can be automated in a reliable way.
+
+Focus is made on the reliability of the test result. In case of doublt, the *Manual* way is initially preferred.
+
+## Client
+
+| Validation identifier |       Validation mode       |
+|:---------------------:|:---------------------------:|
+|         CLT00         |        Automatable          |
+|         CLT01         |        Automatable          |
+|         CLT02         |           Manual            |
+|         CLT03         |        Automatable          |
+|         CLT04         |           Manual            |
+|         CLT05         |           Manual            |
+|         CLT06         |           Manual            |
+|         CLT07         |           Manual            |
+|         CLT08         |           Manual            |
+|         CLT09         |           Manual            |
+|         CLT10a        |           Manual            |
+|         CLT10b        |           Manual            |
+|         CLT10c        |           Manual            |
+|         CLT11a        |           Manual            |
+|         CLT11b        |           Manual            |
+
+# Backend-for-Frontend
+
+| Validation identifier |       Validation mode       |
+|:---------------------:|:---------------------------:|
+|         BFF00         |        Automatable          |
+|         BFF01         |           Manual            |
+|         BFF02         |           Manual            |
+|         BFF03         |           Manual            |
+|         BFF04         |           Manual            |
+|         BFF05         |           Manual            |
+|         BFF06         |           Manual            |
+|         BFF07         |        Automatable          |
+|         BFF08         |           Manual            |
+
+# API
+
+> Note that all test related to JWT token can leverage [jwt_tool](https://github.com/ticarpi/jwt_tool) for the automation.
+
+| Validation identifier |       Validation mode       |
+|:---------------------:|:---------------------------:|
+|         API00         |        Automatable          |
+|         API01a        |        Automatable          |
+|         API01b        |        Automatable          |
+|         API01c        |        Automatable          |
+|         API01d        |        Automatable          |
+|         API01e        |        Automatable          |
+|         API02a        |        Automatable          |
+|         API02b        |        Automatable          |
+|         API02c        |        Automatable          |
+|         API03a        |        Automatable          |
+|         API03b        |        Automatable          |
+|         API03c        |        Automatable          |
+|         API04         |        Automatable          |
+|         API05         |        Automatable          |
+|         API06         |        Automatable          |
+
+# Security Token Service
+
+| Validation identifier |       Validation mode       |
+|:---------------------:|:---------------------------:|
+|         STS00a        |        Manual               |
+|         STS00b        |        Automatable          |
+|         STS00c        |        Manual               |
+|         STS00d        |        Manual               |
+|         STS01a        |        Manual               |
+|         STS01b        |        Manual               |
+|         STS01c        |        Manual               |
+|         STS02         |        Manual               |
+|         STS03a        |        Manual               |
+|         STS03b        |        Manual               |
+|         STS03c        |        Manual               |
+|         STS04a        |        Automatable if config can be exported as JSON/XML/YAML         |
+|         STS04b        |        Automatable if config can be exported as JSON/XML/YAML         |
+|         STS04c        |        Automatable if config can be exported as JSON/XML/YAML         |
+|         STS04d        |        Automatable if config can be exported as JSON/XML/YAML         |
+|         STS04e        |        Automatable if config can be exported as JSON/XML/YAML         |
+|         STS04f        |        Automatable if config can be exported as JSON/XML/YAML         |
+|         STS04g        |        Automatable if config can be exported as JSON/XML/YAML         |
+|         STS04h        |        Automatable if config can be exported as JSON/XML/YAML         |
+|         STS05         |        Manual               |
+|         STS06         |        Automatable if config can be exported as JSON/XML/YAML         |
+|         STS07a        |        Manual               |
+|         STS07b        |        Manual               |
+|         STS07c        |        Manual               |
+|         STS08         |        Manual               |
+|         STS09         |        Manual               |
+|         STS10         |        Automatable          |
+|         STS11         |        Automatable          |
+|         STS12         |        Automatable          |
+
 # Application
 
 ## Terminology
@@ -68,7 +170,7 @@
 	- API01b: Get the verification public key from the STS (using the *jwks_uri* endpoint) based on the *kid* claim
 	- API01c: The signature is valid
 	- API01d: Token is not expired
-	-  API01e: The claim *azp* refer to a *clientId* known by the STS: Normally it's already the case due to the *access token* provided to the *Client* but it is a paranoid validation
+	- API01e: The claim *azp* refer to a *clientId* known by the STS: Normally it's already the case due to the *access token* provided to the *Client* but it is a paranoid validation
 - API02: Ensure for *reference* access token - Get information about the token using the STS token introspection endpoint:
 	- API02a: STS know this token (get a valid response)
 	- API02b: Token is active via the *active* claim
@@ -78,8 +180,8 @@
 	- API03b: The audience claim *aud* for which the access token was targeted is the API
 	- API03c: The issuer claim *iss* is the STS identifier
 - API04: Ensure that the API reject any access token containing a *scope* not defined in the OIDC specifications (OAuth specifications do not define specific scope values) and API context
-- API04: Ensure that the API fail safely when *some scope is missing* (if STS allow to select consent among a list of proposed ones or if consent is refused by the user)
-- API05: Ensure that API verify that the data accessed for read, update or delete operation by the current *Client* is consistent from business logic point of view: *Check exposure to data level access control issues*
+- API05: Ensure that the API fail safely when *some scope is missing* (if STS allow to select consent among a list of proposed ones or if consent is refused by the user)
+- API06: Ensure that API verify that the data accessed for read, update or delete operation by the current *Client* is consistent from business logic point of view: *Check exposure to data level access control issues*
 
 ### STS
 
