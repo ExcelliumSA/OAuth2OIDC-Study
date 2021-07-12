@@ -41,3 +41,17 @@ sequenceDiagram
     Client->>ResourceServer: Use access token to access to the wanted resources
     ResourceServer->>Client: Give the wanted resources content
 ```
+
+### Figure02
+
+```mermaid
+graph LR
+    STS04[Client settings in STS] -->|Include| STS04a[Setting: Token Endpoint Authentication Method]
+    STS04[Client settings in STS] -->|Include| STS04b[Setting: Allowed Web Origins]
+    STS04[Client settings in STS] -->|Include| STS04c[Setting: Allowed Origins]
+    STS04[Client settings in STS] -->|Include| STS04d[Setting: Refresh Token Rotations]
+    STS04[Client settings in STS] -->|Include| STS04e[Setting: Refresh Token Expirations]
+    STS04[Client settings in STS] -->|Include| STS04f[Setting: JSON Signature Algorithm]
+    STS04[Client settings in STS] -->|Include| STS04g[Setting: Cross-Origin Verification Fallback]
+    STS04[Client settings in STS] -->|Include| STS04h[Setting: Allowed Grant Types]
+```
