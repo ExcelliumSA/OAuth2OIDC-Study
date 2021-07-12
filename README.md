@@ -31,6 +31,7 @@ Mind map view mode:
 * Admin console is [here](http://localhost:8080/auth/admin) with creds `admin/admin`.
 * Realm is named **demo** with a user having creds `demo/demo`.
 * An OAuth/OIDC Client is present with name **demo**.
+* An sample web client, via the [App.html](App.html) file, is provided (this one is defined into the lab configuration).
 
 The lab configuration export is stored in file [Realm-Export.json](Realm-Export.json), so, you can import it via the *Import* feature. Use this [screen to create a realm](http://localhost:8080/auth/admin/master/console/#/create/realm).
 
