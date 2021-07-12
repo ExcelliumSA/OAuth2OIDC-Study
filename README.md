@@ -26,6 +26,8 @@ Mind map view mode:
 
 > Default port 8080 is used.
 
+> Base flow init URL is `http://localhost:8080/auth/realms/demo/protocol/openid-connect/auth?client_id=demo&redirect_uri=http://localhost:9500/App.html&state=114d367d-b319-44d0-a8cc-9a08c4a0bffd&response_mode=fragment&response_type=code&scope=openid profile api internal-api&nonce=78a3069c-74e8-4f5b-856a-9d890caabc06&prompt=consent`
+
 ## Properties
 
 * Admin console is [here](http://localhost:8080/auth/admin) with creds `admin/admin`.
@@ -37,17 +39,17 @@ The lab configuration export is stored in file [Realm-Export.json](Realm-Export.
 
 ## Run it
 
-1) Open a shell and run the following set of commands:
+1) Open a shell and run the following set of commands to start a web server:
 
 ```shell
 $ python --version
 Python 3.7.5
-$ cd [GIT_CLONE_FOLDER]
+$ cd [REPO_CLONE_FOLDER]
 $ python -m http.server 9500
 Serving HTTP on 0.0.0.0 port 9500 (http://0.0.0.0:9500/) ...
 ```
 
-2) Open a shell and run the following set of commands:
+2) Open a shell and run the following set of commands to start a fresh Keycloak instance:
 
 ```shell
 $ docker --version
@@ -57,6 +59,8 @@ $ docker run -p 8080:8080 -e KEYCLOAK_USER=admin -e KEYCLOAK_PASSWORD=admin quay
 [org.jboss.as] (Controller Boot Thread) WFLYSRV0051: Admin console listening on http://127.0.0.1:9990
 ```
 
-3) Click [here](http://localhost:8080/auth/admin/master/console/#/create/realm) and impport the [lab full demo configuration](Realm-Export.json).
+3) Click [here](http://localhost:8080/auth/admin/master/console/#/create/realm) and import the [lab full demo configuration](Realm-Export.json) to setup the Keycloak instance.
 
-4) Lab is ready :sunglasses:
+4) Open this [url](http://localhost:9500/App.html) in a browser to access to the demo Web Client..
+
+5) Lab is ready to used :sunglasses:

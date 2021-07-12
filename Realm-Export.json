@@ -675,13 +675,14 @@
         "web-origins",
         "profile",
         "roles",
-        "api",
         "email"
       ],
       "optionalClientScopes": [
+        "internal-api",
         "address",
         "phone",
         "offline_access",
+        "api",
         "microprofile-jwt"
       ]
     },
@@ -792,6 +793,17 @@
         "include.in.token.scope": "true",
         "display.on.consent.screen": "true",
         "consent.screen.text": "Access to my amazing API"
+      }
+    },
+    {
+      "id": "7e22c71d-1f1a-49a6-9244-14f298e101d8",
+      "name": "internal-api",
+      "description": "Access to internal api",
+      "protocol": "openid-connect",
+      "attributes": {
+        "include.in.token.scope": "true",
+        "display.on.consent.screen": "true",
+        "consent.screen.text": "Access to my amazing Internal API"
       }
     },
     {
