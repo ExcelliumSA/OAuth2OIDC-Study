@@ -8,7 +8,7 @@ This file list all identified security-oriented validations points that can be p
 
 This section indicate, for each, validation points, if the test is manual or can be automated in a reliable way.
 
-Focus is made on the reliability of the test result. In case of doublt, the *Manual* way is initially preferred.
+Focus is made on the reliability of the test result. Therefore, in case of doubt, the **Manual** way is initially preferred.
 
 ## Client
 
