@@ -32,7 +32,7 @@ Mind map view mode:
 * Realm is named **demo** with a user having creds `demo/demo`.
 * An OAuth/OIDC Client is present with name **demo**.
 
-The lab configuration export is stored in file [demo-realm-export.json](demo-realm-export.json), so, you can import it via the *Import* feature. Use this [screen to create a realm](http://localhost:8080/auth/admin/master/console/#/create/realm).
+The lab configuration export is stored in file [Realm-Export.json](Realm-Export.json), so, you can import it via the *Import* feature. Use this [screen to create a realm](http://localhost:8080/auth/admin/master/console/#/create/realm).
 
 ## Run it
 
@@ -56,6 +56,6 @@ $ docker run -p 8080:8080 -e KEYCLOAK_USER=admin -e KEYCLOAK_PASSWORD=admin quay
 [org.jboss.as] (Controller Boot Thread) WFLYSRV0051: Admin console listening on http://127.0.0.1:9990
 ```
 
-3) Click [here](http://localhost:8080/auth/admin/master/console/#/create/realm) and impport the [lab full demo configuration](demo-realm-export.json).
+3) Click [here](http://localhost:8080/auth/admin/master/console/#/create/realm) and impport the [lab full demo configuration](Realm-Export.json).
 
 4) Lab is ready :sunglasses:
