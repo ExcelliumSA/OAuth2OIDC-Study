@@ -1,10 +1,10 @@
 # Description
 
-This file list all identified security-oriented validations points against a system using OAuth2 / OpenID Connect.
+This file list all identified security-oriented validations points that can be performed during code review, configuration review or a penetration test against a system using OAuth2 / OpenID Connect.
 
 # Validation automation status
 
-> Terminology is defined in the **Terminology** section below.
+> Terminology is defined in the **[Terminology](#terminology)** section below.
 
 This section indicate, for each, validation points, if the test is manual or can be automated in a reliable way.
 
@@ -46,7 +46,7 @@ Focus is made on the reliability of the test result. In case of doublt, the *Man
 
 ## API
 
-> Note that all test related to JWT token can leverage [jwt_tool](https://github.com/ticarpi/jwt_tool) for the automation.
+> Note that all tests related to JWT token can leverage [jwt_tool](https://github.com/ticarpi/jwt_tool) for the automation.
 
 | Validation identifier |       Validation mode       |
 |:---------------------:|:---------------------------:|
