@@ -22,8 +22,22 @@ To obtain a PNG follow these steps:
 
 ## Mermaid code for schemas
 
-### Figure01
+### Figure00
 
 ```mermaid
-
+sequenceDiagram
+    participant ResourceOwner
+    participant Client
+    participant AuthorizationServer
+    participant ResourceServer
+    Client->>ResourceOwner: Redirect to AS to ask for access to the wanted resources
+    ResourceOwner->>AuthorizationServer: Navigate to
+    AuthorizationServer->>ResourceOwner: Ask for authentication and access consent
+    ResourceOwner->>AuthorizationServer: Authenticate and give consent for access
+    AuthorizationServer->>ResourceOwner: Redirect to Client wtih authorization code
+    ResourceOwner->>Client: Navigate to
+    Client->>AuthorizationServer: Exchange authorization code for access token
+    AuthorizationServer->>Client: Give access token
+    Client->>ResourceServer: Use access token to access to the wanted resources
+    ResourceServer->>Client: Give the wanted resources content
 ```
