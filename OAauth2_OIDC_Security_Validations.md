@@ -187,7 +187,7 @@ Focus is made on the reliability of the test result. Therefore, in case of doubt
 
 - STS00: For *Authorization Code Flow with PKCE*, ensure that:
     - STS00a: The *CodeVerifier* value cannot be recovered (brute force, disclosure, etc) based on the knowledge of the *CodeChallenge* value (as it is passed in the URL redirections)
-    - STS00b: The STS do not support broken hashing algorithm like MD5 or SHA1
+    - STS00b: The STS do not support broken hashing algorithm like MD5 or SHA1 or even "plain" (means *CodeChallenge* == *CodeVerifier*)
     - STS00c: If during the *Code Exchange* phase, the code verifier provided is invalid (the STS must reply *Failed to verify code verifier*) then ensure that the provided *Authorization Code* is immediately invalidated
     - STS00d: Ensure that a Code Verifier value is used only one time at all
 - STS01: Ensure that the *Authorization Code* delivered to client:
