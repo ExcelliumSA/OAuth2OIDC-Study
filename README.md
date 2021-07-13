@@ -31,7 +31,7 @@ Mind map view mode:
 ## Properties
 
 * Admin console is [here](http://localhost:8080/auth/admin) with creds `admin/admin`.
-* Realm is named **demo** with a user having creds `demo/demo`.
+* Realm is named **demo**.
 * An OAuth/OIDC Client is present with name **demo**.
 * An sample web client, via the [App.html](App.html) file, is provided (this one is defined into the lab configuration).
 
@@ -61,6 +61,10 @@ $ docker run -p 8080:8080 -e KEYCLOAK_USER=admin -e KEYCLOAK_PASSWORD=admin quay
 
 3) Click [here](http://localhost:8080/auth/admin/master/console/#/create/realm) and import the [lab full demo configuration](Realm-Export.json) to setup the Keycloak instance.
 
-4) Open this [url](http://localhost:9500/App.html) in a browser to access to the demo Web Client..
+4) Create a user via this [menu](http://localhost:8080/auth/admin/master/console/#/create/user/demo): Just fill the **Username** field and click on the **Save** button.
 
-5) Lab is ready to be used :sunglasses:
+5) Set the password to the user via the tab **Credentials** (disable the **Temporary** flag).
+
+6) Open this [url](http://localhost:9500/App.html) in a browser to access to the demo Web Client..
+
+7) Lab is ready to be used :sunglasses:
