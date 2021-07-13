@@ -39,6 +39,8 @@ The lab configuration export is stored in file [Realm-Export.json](Realm-Export.
 
 ## Run it
 
+> The video [SetupKeycloakLab.mp4](SetupKeycloakLab.mp4) show the steps to setup the Keycloak lab described below.
+
 1) Open a shell and run the following set of commands to start a web server:
 
 ```shell
