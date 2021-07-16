@@ -99,6 +99,8 @@ Focus is made on the reliability of the test result. Therefore, in case of doubt
 |         STS10         |        Automatable          |
 |         STS11         |        Automatable          |
 |         STS12         |        Automatable          |
+|         STS13         |        Automatable via checks against the config from */.well-known/openid-configuration* file          |
+|         STS14         |        Automatable via checks against the config from */.well-known/openid-configuration* file          |
 
 # Application
 
@@ -219,6 +221,8 @@ Focus is made on the reliability of the test result. Therefore, in case of doubt
 - STS10: Ensure that STS only enable, for a *Client*, only the *Response Mode* (parameter *response_mode*) expected according to the kind of OAuth/OIDC flow used by the *Client*
 - STS11: Ensure that the *token introspection endpoint* require authentication (client credentials, basic authentication, client TLS certificate, etc.) from every *Client*
 - STS12: Ensure that the STS reject any request (flow init) specifying a *scope* that is not defined for the targeted API and prevent *scope enumeration/discovery operation*
+- STS13: Ensure that the STS only support *asymmetric algorithms* (RSA/EC) for signature of access/refresh/identity self-contained token (JWT) issued
+- STS14: Ensure that the STS do not support the *NONE algorithms* for signature of access/refresh/identify self-contained token (JWT) issued
 
 ## Attack ideas
 
