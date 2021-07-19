@@ -2,7 +2,7 @@
 
 > :construction: Work in progress
 
-Contains the materials used for the blog post about [OAuth2 and OpenID Connect](https://courses.pragmaticwebsecurity.com/courses/introduction-to-oauth-2-0-and-openid-connect). 
+Contains the materials used for the blog post about [OAuth2 and OpenID Connect](https://courses.pragmaticwebsecurity.com/courses/introduction-to-oauth-2-0-and-openid-connect).
 
 # Blog post link
 
@@ -70,3 +70,11 @@ $ docker run -p 8080:8080 -e KEYCLOAK_USER=admin -e KEYCLOAK_PASSWORD=admin quay
 6) Open this [url](http://localhost:9500/App.html) in a browser to access to the demo Web Client..
 
 7) Lab is ready to be used :sunglasses:
+
+# References
+
+* https://courses.pragmaticwebsecurity.com/courses/introduction-to-oauth-2-0-and-openid-connect
+* https://courses.pragmaticwebsecurity.com/bundles/mastering-oauth-oidc 
+* https://infosecwriteups.com/oauth-2-0-hacking-simplified-part-2-vulnerabilities-and-mitigation-d01dd6d5fa2c
+* https://portswigger.net/web-security/oauth
+* https://connect2id.com/learn

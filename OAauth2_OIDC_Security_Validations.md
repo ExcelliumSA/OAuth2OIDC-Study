@@ -29,8 +29,9 @@ Focus is made on the reliability of the test result. Therefore, in case of doubt
 |         CLT10c        |           Manual            |
 |         CLT11a        |           Manual            |
 |         CLT11b        |           Manual            |
+|         CLT12         |        Automatable          |
 
-## Backend-for-Frontend
+## Backend-for-Frontend (BFF)
 
 | Validation identifier |       Validation mode       |
 |:---------------------:|:---------------------------:|
@@ -66,7 +67,7 @@ Focus is made on the reliability of the test result. Therefore, in case of doubt
 |         API05         |        Automatable          |
 |         API06         |        Automatable          |
 
-## Security Token Service
+## Security Token Service (STS)
 
 | Validation identifier |       Validation mode       |
 |:---------------------:|:---------------------------:|
@@ -77,7 +78,8 @@ Focus is made on the reliability of the test result. Therefore, in case of doubt
 |         STS01a        |        Manual               |
 |         STS01b        |        Manual               |
 |         STS01c        |        Manual               |
-|         STS02         |        Manual               |
+|         STS02a        |        Manual               |
+|         STS02b        |        Manual               |
 |         STS03a        |        Manual               |
 |         STS03b        |        Manual               |
 |         STS03c        |        Manual               |
@@ -101,6 +103,7 @@ Focus is made on the reliability of the test result. Therefore, in case of doubt
 |         STS12         |        Automatable          |
 |         STS13         |        Automatable via checks against the config from */.well-known/openid-configuration* file          |
 |         STS14         |        Automatable via checks against the config from */.well-known/openid-configuration* file          |
+|         STS15         |        Manual               |
 
 # Application
 
@@ -135,7 +138,7 @@ Focus is made on the reliability of the test result. Therefore, in case of doubt
 ### Client
 
 - CLT00: Ensure that local address `http[s]?://localhost:[0-9]{1,5}` is not in allowed callback url
-- CLT01: For SPA, ensure that it use the *Authorization Code Flow with PKCE* instead of the *Implicit flow*
+- CLT01: For SPA, ensure that it use the *Authorization Code Flow with PKCE* instead of the *Implicit flow* or the basic *Authorization Code Flow*
 - CLT02: For SPA, if *Implicit flow* is used, ensure the url is rewritten to prevent the access token to be leaked in any access log or local history
 - CLT03: For SPA, ensure A strict *Content-Security-Policy* is in place to mitigate or made harder exploitation of any kind of XSS vulnerability
 - CLT04: For SPA, ensure that the app use a dedicated libraries/sdk for all OAuth/OIDC operations and not a custom implementation
@@ -151,6 +154,7 @@ Focus is made on the reliability of the test result. Therefore, in case of doubt
 - CLT11: For OIDC authentication flow, ensure that the following 2 claims of the *identity Token* are verified:
 	- CLT11a: *iss*: Issuer of the token (the STS).
 	- CLT11b: *aud*: Audience of the token. This must match the identifier of the client, since the client is the intended target audience of identity tokens.
+- CLT12: If the basic *Authorization Code Flow* is used then ensure that a non-guessable *state* is used and is correctly validated.
 
 ### Backend-for-Frontend (BFF)
 
@@ -196,7 +200,9 @@ Focus is made on the reliability of the test result. Therefore, in case of doubt
 	- STS01a: Have a limited lifetime
 	- STS01b: Is one time usage
 	- STS01c: Cannot be exchanged for a access token without providing valid client credentials or code verifier
-- STS02: Ensure that the *Callback URLs* is strictly validated against the ones defined during the client regsitration when a flow is initiated
+- STS02: Ensure that the *Callback URLs* specified in the *redirect_uri* parameter is strictly validated against the ones defined during the client regsitration when a flow is initiated. Precisely ensure prevention against following abuses:
+	- STS02a: URL parsing abuses like `https://expected-host@evil-host` or `https://expected-host#evil-host` or `https://default-host.com&@foo.evil-user.net#@bar.evil-user.net/`, see `@` and `#` characters
+	- STS02b: *Parameter pollution vulnerabilities* by adding *redirect_uri* parameters several times in the request like `https://sts.com?client_id=123&redirect_uri=client-app.com/callback&redirect_uri=evil-user.net`
 - STS03: Ensure, regarding the *refresh Token*, that:
 	-  STS03a: Have a limited lifetime
 	-  STS03b: The STS require authentication to exchange it against an access token for *confidential client* (for public client is a bearer)
@@ -223,6 +229,7 @@ Focus is made on the reliability of the test result. Therefore, in case of doubt
 - STS12: Ensure that the STS reject any request (flow init) specifying a *scope* that is not defined for the targeted API and prevent *scope enumeration/discovery operation*
 - STS13: Ensure that the STS only support *asymmetric algorithms* (RSA/EC) for signature of access/refresh/identity self-contained token (JWT) issued
 - STS14: Ensure that the STS do not support the *NONE algorithms* for signature of access/refresh/identify self-contained token (JWT) issued
+- STS15: Ensure that Client self-registration require Client information strong validation (email, identity, IP, etc.) prior that access was enabled and credentials were delivered.
 
 ## Attack ideas
 
