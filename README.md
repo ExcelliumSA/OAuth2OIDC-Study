@@ -10,6 +10,8 @@ xxx
 
 # Security validations points
 
+> This [script](https://github.com/righettod/toolbox-pentest-web/blob/master/scripts/identify-attack-surface-oauth-oidc-sts.py) was created to automate as much tests as possible.
+
 > Mind map file is created using markdown syntax and it is transformed using [MarkmapJS](https://markmap.js.org/repl) online tool.
 
 They are defined in this [file](OAauth2_OIDC_Security_Validations.md).
