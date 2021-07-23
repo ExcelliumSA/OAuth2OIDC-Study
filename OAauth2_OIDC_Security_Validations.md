@@ -198,7 +198,7 @@ Focus is made on the reliability of the test result. Therefore, in case of doubt
     - STS00d: Ensure that a Code Verifier value is used only one time at all
 - STS01: Ensure that the *Authorization Code* delivered to client:
 	- STS01a: Have a limited lifetime
-	- STS01b: Is one time usage
+	- STS01b: Is one time usage, non guessable and not reused at all
 	- STS01c: Cannot be exchanged for a access token without providing valid client credentials or code verifier
 - STS02: Ensure that the *Callback URLs* specified in the *redirect_uri* parameter is strictly validated against the ones defined during the client regsitration when a flow is initiated. Precisely ensure prevention against following abuses:
 	- STS02a: URL parsing abuses like `https://expected-host@evil-host` or `https://expected-host#evil-host` or `https://default-host.com&@foo.evil-user.net#@bar.evil-user.net/`, see `@` and `#` characters
