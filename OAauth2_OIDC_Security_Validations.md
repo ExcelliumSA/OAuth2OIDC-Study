@@ -154,7 +154,7 @@ Focus is made on the reliability of the test result. Therefore, in case of doubt
 - CLT11: For OIDC authentication flow, ensure that the following 2 claims of the *identity Token* are verified:
 	- CLT11a: *iss*: Issuer of the token (the STS).
 	- CLT11b: *aud*: Audience of the token. This must match the identifier of the client, since the client is the intended target audience of identity tokens.
-- CLT12: If the basic *Authorization Code Flow* is used then ensure that a non-guessable *state* is used and is correctly validated.
+- CLT12: If the basic *Authorization Code Flow* is used then ensure that a non-guessable, unique, one time used *state* is used and is correctly validated.
 
 ### Backend-for-Frontend (BFF)
 
