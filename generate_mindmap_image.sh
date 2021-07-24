@@ -1,12 +1,12 @@
 #!/bin/bash
 ##############################################
-# Script to generate the markdown content 
-# to use on https://markmap.js.org/repl/
+# Script to generate the mermaid content 
 # to generate the mind map image
 ##############################################
-work_file="/tmp/mindmap.md"
+work_file="/tmp/mindmap.mmd"
+echo "[+] Generate the mermaid content for the graph..."
 prefixes=(CLT API BFF STS)
-echo "# Validations" > $work_file
+echo "graph LR" > $work_file
 for prefix in ${prefixes[@]}; do
 	check_count=$(grep -Ec "\-\s$prefix[0-9]{2}:" OAauth2_OIDC_Security_Validations.md)
 	component_name=$prefix
@@ -21,7 +21,9 @@ for prefix in ${prefixes[@]}; do
 			component_name="Backend-For-Frontend"
 			;;			
 	esac
-	echo "## $component_name: $check_count checks" >> $work_file
+	echo "    CHECK([Validations]) ---|$check_count checks| $prefix([$component_name])" >> $work_file
 done
-echo "[+] Use the following content on 'https://markmap.js.org/repl/' to generate the mind map:"
 cat $work_file
+echo "[+] Generate the PNG image of the graph..."
+npx -p @mermaid-js/mermaid-cli mmdc -i $work_file -o OAauth2_OIDC_Security_Validations.png -t forest
+rm $work_file
