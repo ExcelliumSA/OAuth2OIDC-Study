@@ -22,7 +22,7 @@ for prefix in ${prefixes[@]}; do
 			component_name="Backend-For-Frontend"
 			;;			
 	esac
-	echo "    CHECK_$uid([Validations]) ---|$check_count checks| $prefix_$uid([$component_name])" >> $work_file
+	echo "    CHECK_$uid([Validations]) ---|$check_count checks| $prefix([$component_name])" >> $work_file
 done
 cat $work_file
 echo "[+] Generate the PNG image of the graph..."
