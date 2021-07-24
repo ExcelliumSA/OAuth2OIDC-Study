@@ -20,7 +20,7 @@ Mind map view mode:
 
 ![OAauth2_OIDC_Security_Validations](OAauth2_OIDC_Security_Validations.png)
 
-:speech_balloon: Mind map content is all content inside the **Application** section including the title.
+:speech_balloon: Mind map markdown content is generated using this [script](generate_mindmap_md_content.sh).
 
 # Lab
 
