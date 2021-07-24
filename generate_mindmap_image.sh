@@ -25,5 +25,7 @@ for prefix in ${prefixes[@]}; do
 done
 cat $work_file
 echo "[+] Generate the PNG image of the graph..."
+sha256sum OAauth2_OIDC_Security_Validations.png
 npx -p @mermaid-js/mermaid-cli mmdc -i $work_file -o OAauth2_OIDC_Security_Validations.png -t forest
+sha256sum OAauth2_OIDC_Security_Validations.png
 rm $work_file
