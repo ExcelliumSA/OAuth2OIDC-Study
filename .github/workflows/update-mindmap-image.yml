@@ -20,5 +20,5 @@ jobs:
     - name: Prepare update commit
       run: git config --global user.email "gha@github.com"; git config --global user.name "GHActionBot"       
     - name: Commit update
-      run: git commit -m "Update mind map image" OAauth2_OIDC_Security_Validations.png; git push      
+      run: git commit -am "Update mind map image"; git push      
 
