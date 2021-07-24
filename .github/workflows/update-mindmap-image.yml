@@ -16,5 +16,5 @@ jobs:
       with:
         node-version: '14'     
     - name: Update image
-      run: ./generate_mindmap_image.sh
+      run: chmod +x ./generate_mindmap_image.sh; bash ./generate_mindmap_image.sh
 
