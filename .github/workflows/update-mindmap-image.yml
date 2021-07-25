@@ -9,13 +9,13 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Setup Action
+      - name: Set up Action
         uses: actions/checkout@v2
-      - name: Setup node
+      - name: Set up Node
         uses: actions/setup-node@v2
         with:
           node-version: "14"
-      - name: Setup GIT user
+      - name: Set up Git user
         run: git config --global user.email "gha@github.com"; git config --global user.name "GHActionBot"
       - name: Update image
         run: chmod +x ./generate_mindmap_image.sh; bash ./generate_mindmap_image.sh
