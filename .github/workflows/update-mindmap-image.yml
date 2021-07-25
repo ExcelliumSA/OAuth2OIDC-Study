@@ -2,23 +2,22 @@ name: update_mindmap_image
 on:
   workflow_dispatch:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 jobs:
   build:
-    runs-on: ubuntu-latest  
+    runs-on: ubuntu-latest
     steps:
-    - name: Setup Action
-      uses: actions/checkout@v2
-    - name: Setup node
-      uses: actions/setup-node@v2
-      with:
-        node-version: '14'     
-    - name: Update image
-      run: chmod +x ./generate_mindmap_image.sh; bash ./generate_mindmap_image.sh
-    - name: Prepare update commit
-      run: git config --global user.email "gha@github.com"; git config --global user.name "GHActionBot"       
-    - name: Commit update
-      run: git commit -am "Update mind map image"; git push      
-
+      - name: Setup Action
+        uses: actions/checkout@v2
+      - name: Setup node
+        uses: actions/setup-node@v2
+        with:
+          node-version: "14"
+      - name: Update image
+        run: chmod +x ./generate_mindmap_image.sh; bash ./generate_mindmap_image.sh
+      - name: Prepare update commit
+        run: git config --global user.email "gha@github.com"; git config --global user.name "GHActionBot"
+      - name: Commit update
+        run: git commit -am "Sync mind map image"; git push
