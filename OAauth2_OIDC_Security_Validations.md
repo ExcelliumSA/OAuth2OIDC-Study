@@ -139,7 +139,7 @@ Focus is made on the reliability of the test result. Therefore, in case of doubt
 
 ### Client
 
-- CLT00: Ensure that local address `http[s]?://localhost:[0-9]{1,5}` is not in allowed callback url
+- CLT00: Ensure that local address `http[s]?://localhost:[0-9]{1,5}` is not in allowed in callback uri (parameter *redirect_uri*) or request uri (parameter *request_uri*)
 - CLT01: For SPA, ensure that it use the *Authorization Code Flow with PKCE* instead of the *Implicit flow* or the basic *Authorization Code Flow*
 - CLT02: For SPA, if *Implicit flow* is used, ensure the url is rewritten to prevent the access token to be leaked in any access log or local history
 - CLT03: For SPA, ensure A strict *Content-Security-Policy* is in place to mitigate or made harder exploitation of any kind of XSS vulnerability
