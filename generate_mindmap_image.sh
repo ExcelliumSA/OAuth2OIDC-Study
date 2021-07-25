@@ -26,7 +26,8 @@ done
 cat $work_file
 echo "[+] Generate the PNG image of the graph..."
 sha256sum OAauth2_OIDC_Security_Validations.png
-echo 1 > OAauth2_OIDC_Security_Validations.png 
+echo 1 > OAauth2_OIDC_Security_Validations.png
+git commit -m "Force alteration of the image" OAauth2_OIDC_Security_Validations.png
 npx -p @mermaid-js/mermaid-cli mmdc -i $work_file -o OAauth2_OIDC_Security_Validations.png -t forest
 sha256sum OAauth2_OIDC_Security_Validations.png
 rm $work_file

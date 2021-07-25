@@ -15,9 +15,9 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: "14"
+      - name: Setup GIT user
+        run: git config --global user.email "gha@github.com"; git config --global user.name "GHActionBot"
       - name: Update image
         run: chmod +x ./generate_mindmap_image.sh; bash ./generate_mindmap_image.sh
-      - name: Prepare update commit
-        run: git config --global user.email "gha@github.com"; git config --global user.name "GHActionBot"
       - name: Commit update
         run: git commit -am "Sync mind map image"; git push
