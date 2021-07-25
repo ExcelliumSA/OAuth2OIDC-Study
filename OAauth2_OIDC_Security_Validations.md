@@ -233,8 +233,8 @@ Focus is made on the reliability of the test result. Therefore, in case of doubt
 - STS14: Ensure that the STS do not support the *NONE algorithms* for signature of access/refresh/identify self-contained token (JWT) issued
 - STS15: Ensure if Client self-registration is enabled that:
 	- STS15a: It require Client information strong validation (email, identity, IP, etc.) prior that access was enabled and credentials were delivered.
-	- STS15b: During registration that parameters *logo_uri*, *jwks_uri*, *sector_identifier_uri*, *request_uris*, *client_uri*, *policy_uri*, *tos_uri*, *initiate_login_uri* do not expose the STS to SSRF. See the section named *Dynamic Client Registration, SSRF by design* of this [blog post](https://portswigger.net/research/hidden-oauth-attack-vectors) for exploitation details.
-- STS16: If the *request_uri* parameter is supported by the STS during the init of a flow then ensure that it do not expose the STS to SSRF. See the section named *Dynamic Client Registration, SSRF by design* of this [blog post](https://portswigger.net/research/hidden-oauth-attack-vectors) for exploitation details.
+	- STS15b: During registration that parameters *logo_uri*, *jwks_uri*, *sector_identifier_uri*, *request_uris*, *client_uri*, *policy_uri*, *tos_uri*, *initiate_login_uri* do not expose the STS to SSRF. See the section named *Dynamic Client Registration, SSRF by design* of this [blog post](https://portswigger.net/research/hidden-oauth-attack-vectors) for exploitation details
+- STS16: If the *request_uri* parameter is supported by the STS during the init of a flow then ensure that it do not expose the STS to SSRF. See the section named *Dynamic Client Registration, SSRF by design* of this [blog post](https://portswigger.net/research/hidden-oauth-attack-vectors) for exploitation details
 
 ## Attack ideas
 
