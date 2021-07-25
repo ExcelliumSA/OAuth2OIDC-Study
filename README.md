@@ -79,5 +79,6 @@ $ docker run -p 8080:8080 -e KEYCLOAK_USER=admin -e KEYCLOAK_PASSWORD=admin quay
 * https://courses.pragmaticwebsecurity.com/bundles/mastering-oauth-oidc 
 * https://infosecwriteups.com/oauth-2-0-hacking-simplified-part-2-vulnerabilities-and-mitigation-d01dd6d5fa2c
 * https://maxfieldchen.com/posts/2020-05-17-penetration-testers-guide-oauth-2.html
+* https://portswigger.net/research/hidden-oauth-attack-vectors
 * https://portswigger.net/web-security/oauth
 * https://connect2id.com/learn
