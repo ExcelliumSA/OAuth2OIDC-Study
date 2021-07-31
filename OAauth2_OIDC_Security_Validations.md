@@ -107,6 +107,7 @@ Focus is made on the reliability of the test result. Therefore, in case of doubt
 |         STS15b        |        Manual               |
 |         STS16         |        Manual               |
 |         STS17         |        Manual               |
+|         STS18        |        Automatable           |
 
 # Application
 
@@ -237,6 +238,7 @@ Focus is made on the reliability of the test result. Therefore, in case of doubt
 	- STS15b: During registration that parameters *logo_uri*, *jwks_uri*, *sector_identifier_uri*, *request_uris*, *client_uri*, *policy_uri*, *tos_uri*, *initiate_login_uri* do not expose the STS to SSRF. See the section named *Dynamic Client Registration, SSRF by design* of this [blog post](https://portswigger.net/research/hidden-oauth-attack-vectors) for exploitation details
 - STS16: If the *request_uri* parameter is supported by the STS during the init of a flow then ensure that it do not expose the STS to SSRF. See the section named *Dynamic Client Registration, SSRF by design* of this [blog post](https://portswigger.net/research/hidden-oauth-attack-vectors) for exploitation details
 - STS17: Ensure that the STS is not prone to the "redirect_uri Session Poisoning" attack. See the section named *Chapter two: "redirect_uri" Session Poisoning* of this [blog post](https://portswigger.net/research/hidden-oauth-attack-vectors) for exploitation details
+- STS18: Ensure that the STS is not prone to *Issuer* enumeration via the support of the [OpenID Provider Issuer Discovery](https://openid.net/specs/openid-connect-discovery-1_0.html#IssuerDiscovery) feature. See the section named *Chapter three: "/.well-known/webfinger" makes all user names well-known* of this [blog post](https://portswigger.net/research/hidden-oauth-attack-vectors) for exploitation details
 
 ## Attack ideas
 
