@@ -243,8 +243,3 @@ Focus is made on the reliability of the test result. Therefore, in case of doubt
 - STS18: Ensure that the STS is not prone to *Issuer* enumeration via the support of the [OpenID Provider Issuer Discovery](https://openid.net/specs/openid-connect-discovery-1_0.html#IssuerDiscovery) feature. See the section named *Chapter three: "/.well-known/webfinger" makes all user names well-known* of this [blog post](https://portswigger.net/research/hidden-oauth-attack-vectors) for exploitation details
 - STS19: For *Implicit* and *Hybrid* flows, ensure that the *id token* include the *nonce* (cryptographically random string that your app adds to the initial request and is included inside the *id token* to prevent [token replay attacks](https://auth0.com/docs/authorization/mitigate-replay-attacks-when-using-the-implicit-flow)).
 - STS20: Ensure that the *id token* include the *c_hash* claim that is a hash of the authorization code exchanged to obtain it, see [here](https://auth0.com/docs/flows/call-api-hybrid-flow#response) for technical details about this validation. This claim *is mandatory when an id token is issued at the same time as a authorization code*.
-
-## Attack ideas
-
-- ATT00: Try to discover scope via the reply of STS during a flow init when a non existing scope value is defined
-- ATT01: For OIDC - During the init of a flow, test the different value supported by the *prompt* parameter and see if it offer an attack surface
