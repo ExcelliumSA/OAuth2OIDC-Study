@@ -111,6 +111,7 @@ Focus is made on the reliability of the test result. Therefore, in case of doubt
 |         STS19         |        Manual               |
 |         STS20         |        Manual               |
 |         STS21a        |        Manual               |
+|         STS21b        |        Manual               |
 
 # Application
 
@@ -246,3 +247,6 @@ Focus is made on the reliability of the test result. Therefore, in case of doubt
 - STS20: Ensure that the *id token* include the *c_hash* claim that is a hash of the authorization code exchanged to obtain it, see [here](https://auth0.com/docs/flows/call-api-hybrid-flow#response) for technical details about this validation. This claim *is mandatory when an id token is issued at the same time as a authorization code*. See [here](https://openid.net/specs/openid-connect-core-1_0.html#HybridIDToken) for details about this hash
 - STS21: If the parameter [claims](https://openid.net/specs/openid-connect-core-1_0.html#ClaimsParameter) is supported by the STS:
     - STS21a: Ensure that is not possible to override, in the *id token*, sensitive claims that are parts of the [Standard Claims](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) set like *iss*, *aud*, *sub*, *azp*, *nonce*, *at_hash* 
+    	- Raw test value to URL encode: `{"id_token":{"sub":{"essential": true,"value":"changed"}}}` 	
+    - STS21b: Ensure that in the *id token* and *UserInfo* endpoint the claims named *profile*, *picture*, *website* are not prone to SSRF by fixing their value via the *claims* parameter
+    	- Raw test value to URL encode: `{"id_token":{"profile":{"essential": true,"value":"http://listener.com/1"},"picture":{"essential": true,"value":"http://listener.com/2"},"website":{"essential": true,"value":"http://listener.com/3"}}, "userinfo":{"profile":{"essential": true,"value":"http://listener.com/4"},"picture":{"essential": true,"value":"http://listener.com/5"},"website":{"essential": true,"value":"http://listener.com/6"}}}` 		
