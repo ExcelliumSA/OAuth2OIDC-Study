@@ -110,8 +110,9 @@ Focus is made on the reliability of the test result. Therefore, in case of doubt
 |         STS18         |        Automatable          |
 |         STS19         |        Manual               |
 |         STS20         |        Manual               |
-|         STS21a        |        Manual               |
-|         STS21b        |        Manual               |
+|         STS21         |        Manual               |
+|         STS22a        |        Manual               |
+|         STS22b        |        Manual               |
 
 # Application
 
@@ -244,9 +245,10 @@ Focus is made on the reliability of the test result. Therefore, in case of doubt
 - STS17: Ensure that the STS is not prone to the "redirect_uri Session Poisoning" attack. See the section named *Chapter two: "redirect_uri" Session Poisoning* of this [blog post](https://portswigger.net/research/hidden-oauth-attack-vectors) for exploitation details
 - STS18: Ensure that the STS is not prone to *Issuer* enumeration via the support of the [OpenID Provider Issuer Discovery](https://openid.net/specs/openid-connect-discovery-1_0.html#IssuerDiscovery) feature. See the section named *Chapter three: "/.well-known/webfinger" makes all user names well-known* of this [blog post](https://portswigger.net/research/hidden-oauth-attack-vectors) for exploitation details
 - STS19: For *Implicit* and *Hybrid* flows, ensure that the *id token* include the *nonce* (cryptographically random string that your app adds to the initial request and is included inside the *id token* to prevent [token replay attacks](https://auth0.com/docs/authorization/mitigate-replay-attacks-when-using-the-implicit-flow))
-- STS20: Ensure that the *id token* include the *c_hash* claim that is a hash of the authorization code exchanged to obtain it, see [here](https://auth0.com/docs/flows/call-api-hybrid-flow#response) for technical details about this validation. This claim *is mandatory when an id token is issued at the same time as a authorization code*. See [here](https://openid.net/specs/openid-connect-core-1_0.html#HybridIDToken) for details about this hash
-- STS21: If the parameter [claims](https://openid.net/specs/openid-connect-core-1_0.html#ClaimsParameter) is supported by the STS:
-    - STS21a: Ensure that is not possible to override, in the *id token*, sensitive claims that are parts of the [Standard Claims](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) set like *iss*, *aud*, *sub*, *azp*, *nonce*, *at_hash* 
+- STS20: For [Hybrid flow](https://openid.net/specs/openid-connect-core-1_0.html#HybridFlowAuth) - Ensure that the *id token* include the *c_hash* claim that is a hash of the authorization code exchanged to obtain it, see [here](https://auth0.com/docs/flows/call-api-hybrid-flow#response) for technical details about this validation. See [here](https://openid.net/specs/openid-connect-core-1_0.html#HybridIDToken) for details about how this hash is computed
+- STS21: For [Hybrid flow](https://openid.net/specs/openid-connect-core-1_0.html#HybridFlowAuth) - Ensure that the *id token* include the *at_hash* claim that is a hash of the *access token* issued at the same time than the *id token*. See [here](https://openid.net/specs/openid-connect-core-1_0.html#HybridIDToken) for details about how this hash is computed
+- STS22: If the parameter [claims](https://openid.net/specs/openid-connect-core-1_0.html#ClaimsParameter) is supported by the STS:
+    - STS22a: Ensure that is not possible to override, in the *id token*, sensitive claims that are parts of the [Standard Claims](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) set like *iss*, *aud*, *sub*, *azp*, *nonce*, *at_hash* 
     	- Raw test value to URL encode: `{"id_token":{"sub":{"essential": true,"value":"changed"}}}` 	
-    - STS21b: Ensure that in the *id token* and *UserInfo* endpoint the claims named *profile*, *picture*, *website* are not prone to SSRF by fixing their value via the *claims* parameter
+    - STS22b: Ensure that in the *id token* and *UserInfo* endpoint the claims named *profile*, *picture*, *website* are not prone to SSRF by fixing their value via the *claims* parameter
     	- Raw test value to URL encode: `{"id_token":{"profile":{"essential": true,"value":"http://listener.com/1"},"picture":{"essential": true,"value":"http://listener.com/2"},"website":{"essential": true,"value":"http://listener.com/3"}}, "userinfo":{"profile":{"essential": true,"value":"http://listener.com/4"},"picture":{"essential": true,"value":"http://listener.com/5"},"website":{"essential": true,"value":"http://listener.com/6"}}}` 		
