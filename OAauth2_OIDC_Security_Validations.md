@@ -157,7 +157,7 @@ Focus is made on the reliability of the test result. Therefore, in case of doubt
 - CLT08: For SPA, if the *access token* is a self-contained then ensure that it does not contain any sensitive information.
 - CLT09: For SPA, ensure that *refresh token rotations* measures are in place when refresh tokens are used
 - CLT10: For Mobile app using *Authorization Code Flow with PKCE*, ensure that:
-  - CLT10:a The embedded system browser is used and not a WebView. Indeed, the application must not be able to access to content browsed by the user (for example when he types its credentials to authenticate against the STS).
+  - CLT10a: The embedded system browser is used and not a WebView. Indeed, the application must not be able to access to content browsed by the user (for example when he types its credentials to authenticate against the STS).
   - CLT10b: Communication between the app and the embedded system browsers must be achieved by using app launch triggering and parameters carrying using *iOS Universal Links* and *Android App Links* and not *custom URL scheme*.
   - CLT10c: *Access and refresh tokens* are stored in a way that they are ciphered when at rest.
 - CLT11: For OIDC authentication flow, ensure that the following 2 claims of the *identity Token* are verified:
