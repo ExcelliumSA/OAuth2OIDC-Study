@@ -2,13 +2,11 @@
 
 [![update_mindmap_image](https://github.com/ExcelliumSA/OAuth2OIDC-Study/actions/workflows/update-mindmap-image.yml/badge.svg)](https://github.com/ExcelliumSA/OAuth2OIDC-Study/actions/workflows/update-mindmap-image.yml)
 
-> :construction: Work in progress
-
 Contains the materials used for the blog post about [OAuth2 and OpenID Connect](https://courses.pragmaticwebsecurity.com/courses/introduction-to-oauth-2-0-and-openid-connect).
 
 # Blog post link
 
-xxx
+https://excellium-services.com/2021/10/22/how-to-evaluate-an-oauth-openid-connect-system-from-a-security-point-of-view/
 
 # Security validations points
 
